@@ -1,33 +1,45 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
+  --primary-color: #222;
+  --button-color: #646cff;
+  --button-hover-color: #535bf2;
+  --danger-color: #dc3545;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --border-radius: 8px;
+  --site-max-width-wide: 1280px;
+  --site-max-width-normal: 920px;
+  --site-max-width-thin: 680px;
+  --spacing: 1rem;
+
 }
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: var(--button-color);
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: var(--button-hover-color);
 }
 
 body {
-  margin: 0;
   display: flex;
-  place-items: center;
+  font-family: var(--font-family);
+  margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  place-items: center;
 }
 
 h1 {
@@ -47,7 +59,7 @@ button {
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: var(--button-hover-color);
 }
 button:focus,
 button:focus-visible {
