@@ -1,0 +1,10 @@
+.footer {
+    max-width: 1920px;
+}
+
+.footer nav {
+    display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: space-around;
+}
