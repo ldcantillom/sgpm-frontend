@@ -1,0 +1,14 @@
+footer { background-color: var(--primary-color); }
+
+footer .container-layout { max-width: var(--site-max-width-wide); }
+
+.footer {
+    padding: 1rem;
+}
+
+.footer  nav{
+    display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: space-around;
+}

@@ -1,27 +1,26 @@
-import { Link, Route, Routes } from 'react-router-dom';
-import { useState } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import './styles/App.css';
 
-import './App.css';
 import Login from './pages/Login';
+import Signup from './pages/Signup';
 import Layout from './components/Layout';
-import Bikes from './pages/Bikes'
 import Home from './pages/Home';
+import Bikes from './pages/Bikes';
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <>
-      <Routes>
-        <Route path='/' element={<Login />} />
-        <Route path='/login' element={<Login />} />
+    <Routes>
+      <Route path='/' element={<Layout />}>
+        <Route index element={<Login />} />
+        <Route path='login' element={<Login />} />
+        <Route path='signup' element={<Signup />} />
 
-        <Route path="/dashboard" element={<Layout />}>
+        <Route path='dashboard'>
           <Route index element={<Home />} />
-          <Route path="bikes" element={<Bikes />} />
+          <Route path='bikes' element={<Bikes />} />
         </Route>
-      </Routes>
-    </>
+      </Route>
+    </Routes>
   );
 }
 

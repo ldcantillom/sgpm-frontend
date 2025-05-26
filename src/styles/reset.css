@@ -1,0 +1,70 @@
+/* reset.css */
+
+/* 1. Aplicar border-box para que padding y border no aumenten el tamaño del elemento */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* 2. Eliminar márgenes y paddings por defecto */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* 3. Asegurar que html y body ocupen toda la altura */
+html, body {
+  height: 100%;
+  width: 100%;
+  font-family: system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 4. Eliminar viñetas de listas y estilo de enlaces */
+ul, ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* 5. Formularios: limpiar estilos por defecto */
+input, button, textarea, select {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+button {
+  cursor: pointer;
+  background-color: transparent;
+}
+
+/* 6. Imágenes responsivas por defecto */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* 7. Tablas sin bordes colapsados */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* 8. Evitar scroll horizontal inesperado */
+body {
+  overflow-x: hidden;
+}
+
+/* 9. Elementos base */
+h1, h2, h3, h4, h5, h6, p {
+  font-weight: 500;
+}
