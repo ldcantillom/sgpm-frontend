@@ -9,7 +9,7 @@ function Layout() {
   return (
     <div id="layout">
       <Header currentPath={location.pathname} />
-      <main>
+      <main className="main">
         <Outlet />
       </main>
       <Footer />
