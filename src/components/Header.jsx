@@ -1,33 +1,33 @@
-import { NavLink, useNavigate, Link } from "react-router-dom";
-import styles from "../styles/Header.module.css";
+import { NavLink, useNavigate, Link } from 'react-router-dom';
+import '../styles/header.css';
 
 function Header({ currentPath }) {
   const navigate = useNavigate();
-  const token = sessionStorage.getItem("token");
+  const token = sessionStorage.getItem('token');
 
   const handleLogout = () => {
     sessionStorage.clear();
-    navigate("/login");
+    navigate('/login');
   };
 
   return (
-    <header className={styles.header}>
-      <nav className={styles.nav}>
+    <header className='header'>
+      <nav className='nav'>
         {token ? (
           <>
             <NavLink
-              to="/dashboard"
+              to='/dashboard'
               className={({ isActive }) =>
-                isActive ? styles.activeLink : styles.link
+                isActive ? '.activeLink ' : '.link'
               }
             >
               Inicio
             </NavLink>
-            <span className={styles.separator}>|</span>
+            <span className='separator'>|</span>
             <NavLink
-              to="/dashboard/bikes"
+              to='/dashboard/bikes'
               className={({ isActive }) =>
-                isActive ? styles.activeLink : styles.link
+                isActive ? '.activeLink' : '.link'
               }
             >
               Mis Motos
@@ -36,12 +36,12 @@ function Header({ currentPath }) {
           </>
         ) : (
           <>
-            {currentPath === "/login" ? (
-              <Link to="/signup" className={styles.link}>
+            {currentPath === '/login' ? (
+              <Link to='/signup' className='link'>
                 Registrarse
               </Link>
             ) : (
-              <Link to="/login" className={styles.link}>
+              <Link to='/login' className='link'>
                 Iniciar sesión
               </Link>
             )}

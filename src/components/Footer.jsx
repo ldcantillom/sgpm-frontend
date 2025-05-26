@@ -1,9 +1,9 @@
 import React from 'react'
-import styles from '../styles/Footer.module.css'
+import '../styles/footer.css'
 
 const Footer = () => {
   return (
-    <footer className={styles.footer}>
+    <footer className='footer'>
       <nav>
         <a href="">Acerca de Nosotros</a>
         <a href="">Ayudanos a Mejorar</a>
