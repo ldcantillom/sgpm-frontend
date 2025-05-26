@@ -1,15 +1,30 @@
-import React, { useState } from 'react';
-import '../styles/login.css';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import LoadingBar from '../components/Loading';
+import '../styles/login.css';
 
 const Login = () => {
+  const [loading, setLoading] = useState(true);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
+  useEffect(() => {
+    const token = sessionStorage.getItem('token');
+
+    if (token) {
+      setTimeout(() => {
+        navigate('/dashboard');
+      }, 1000);
+    } else {
+      setLoading(false);
+    }
+  }, [navigate]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
     try {
       const response = await fetch('http://localhost:8080/api/v1/auth/login', {
@@ -35,8 +50,16 @@ const Login = () => {
     } catch (err) {
       console.error(err);
       setError(err.message);
+    } finally {
+      setLoading(false);
     }
   };
+
+  if (loading) {
+    return (
+      <LoadingBar />
+    );
+  }
 
   return (
     <>

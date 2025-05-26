@@ -1,0 +1,12 @@
+.loaderContainer {
+    width: 200px;
+    justify-self: center;
+}
+
+.loaderContainer img {
+    width: 100%;
+}
+
+.loaderContainer * {
+    margin: 0;
+}
