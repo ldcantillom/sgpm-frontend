@@ -1,8 +1,12 @@
+footer { background-color: var(--primary-color); }
+
+footer .container-layout { max-width: var(--site-max-width-wide); }
+
 .footer {
-    max-width: 1920px;
+    padding: 1rem;
 }
 
-.footer nav {
+.footer  nav{
     display: flex;
         flex-wrap: wrap;
         gap: 20px;

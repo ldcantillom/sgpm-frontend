@@ -1,27 +1,33 @@
-.header {
-  background-color: #222;
+header {
+  background-color: var(--primary-color);
   padding: 1rem;
-  color: white;
 }
 
-.nav {
+header .container-layout { max-width: var(--site-max-width-wide);}
+
+.header {
+  display: flex;
+    justify-content: space-between;
+}
+
+.header .nav {
   display: flex;
   gap: 1rem;
   align-items: center;
 }
 
-.link {
+.header .link {
   color: #aaa;
   text-decoration: none;
   font-weight: 500;
 }
 
-.activeLink {
+.header .activeLink {
   color: white;
   font-weight: bold;
   text-decoration: underline;
 }
 
-.separator {
+.header .separator {
   color: #555;
 }

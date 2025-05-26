@@ -1,3 +1,62 @@
-form {
-    width: 200px;
+:root {
+  --input-padding: 0.75rem;
+}
+
+.container-layout { max-width: var(--site-max-width-thin); }
+
+.form {
+  padding: 2rem;
+  background-color: #333;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: var(--font-family);
+}
+
+.form form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing);
+}
+
+.form h1 {
+  text-align: center;
+  margin-bottom: var(--spacing);
+  font-size: 1.8rem;
+  color: var(--button-color);
+}
+
+.form input[type="text"],
+.form input[type="password"] {
+  padding: var(--input-padding);
+  border: 1px solid #ccc;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.form input[type="text"]:focus,
+.form input[type="password"]:focus {
+  border-color: var(--button-color);
+  outline: none;
+}
+
+.form input[type="submit"] {
+  padding: var(--input-padding);
+  background-color: var(--button-color);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.form input[type="submit"]:hover {
+  background-color: var(--button-hover-color);
+}
+
+.form .error {
+  color: var(--danger-color);
+  text-align: center;
+  font-weight: bold;
 }

@@ -62,29 +62,31 @@ const Login = () => {
   }
 
   return (
-    <>
-      <form onSubmit={handleSubmit}>
-        <h1>LOGIN</h1>
-        <input
-          type="text"
-          name="email"
-          id="login-email"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          placeholder="Correo"
-        />
-        <input
-          type="password"
-          name="password"
-          id="login-password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Contraseña"
-        />
-        <input type="submit" value="Entrar" />
-        {error && <p className="error">{error}</p>}
-      </form>
-    </>
+    <div className='container-layout'>
+      <div className='form'>
+        <form onSubmit={handleSubmit}>
+          <h1>LOGIN</h1>
+          <input
+            type="text"
+            name="email"
+            id="login-email"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            placeholder="Correo"
+          />
+          <input
+            type="password"
+            name="password"
+            id="login-password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Contraseña"
+          />
+          <input type="submit" value="Entrar" />
+          {error && <p className="error">{error}</p>}
+        </form>
+      </div>
+    </div>
   );
 };
 

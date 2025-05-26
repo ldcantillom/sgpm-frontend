@@ -11,43 +11,50 @@ function Header({ currentPath }) {
   };
 
   return (
-    <header className='header'>
-      <nav className='nav'>
-        {token ? (
-          <>
-            <NavLink
-              to='/dashboard'
-              className={({ isActive }) =>
-                isActive ? '.activeLink ' : '.link'
-              }
-            >
-              Inicio
-            </NavLink>
-            <span className='separator'>|</span>
-            <NavLink
-              to='/dashboard/bikes'
-              className={({ isActive }) =>
-                isActive ? '.activeLink' : '.link'
-              }
-            >
-              Mis Motos
-            </NavLink>
-            <button onClick={handleLogout}>Cerrar sesión</button>
-          </>
-        ) : (
-          <>
-            {currentPath === '/login' ? (
-              <Link to='/signup' className='link'>
-                Registrarse
-              </Link>
+    <header>
+      <div className='container-layout'>
+        <div className='header'>
+          <div className='sgmp-logo'>
+            <h1>SGPM</h1>
+          </div>
+          <nav className='nav'>
+            {token ? (
+              <>
+                <NavLink
+                  to='/dashboard'
+                  className={({ isActive }) =>
+                    isActive ? '.activeLink ' : '.link'
+                  }
+                >
+                  Inicio
+                </NavLink>
+                <span className='separator'>|</span>
+                <NavLink
+                  to='/dashboard/bikes'
+                  className={({ isActive }) =>
+                    isActive ? '.activeLink' : '.link'
+                  }
+                >
+                  Mis Motos
+                </NavLink>
+                <button onClick={handleLogout}>Cerrar sesión</button>
+              </>
             ) : (
-              <Link to='/login' className='link'>
-                Iniciar sesión
-              </Link>
+              <>
+                {currentPath === '/login' ? (
+                  <Link to='/signup' className='link'>
+                    Registrarse
+                  </Link>
+                ) : (
+                  <Link to='/login' className='link'>
+                    Iniciar sesión
+                  </Link>
+                )}
+              </>
             )}
-          </>
-        )}
-      </nav>
+          </nav>
+        </div>
+      </div>
     </header>
   );
 }
