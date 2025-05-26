@@ -1,7 +1,7 @@
 import { Link, Route, Routes } from 'react-router-dom';
 import { useState } from 'react';
 
-import './App.css';
+import './styles/App.css';
 import Login from './pages/Login';
 import Layout from './components/Layout';
 import Bikes from './pages/Bikes'
@@ -16,9 +16,9 @@ function App() {
         <Route path='/' element={<Login />} />
         <Route path='/login' element={<Login />} />
 
-        <Route path="/dashboard" element={<Layout />}>
+        <Route path='/dashboard' element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="bikes" element={<Bikes />} />
+          <Route path='bikes' element={<Bikes />} />
         </Route>
       </Routes>
     </>
