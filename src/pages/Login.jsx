@@ -82,7 +82,7 @@ const Login = () => {
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Contraseña"
           />
-          <input type="submit" value="Entrar" />
+          <input className='button button2' type="submit" value="Entrar" />
           {error && <p className="error">{error}</p>}
         </form>
       </div>
