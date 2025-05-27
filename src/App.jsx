@@ -6,6 +6,8 @@ import Signup from './pages/Signup';
 import Layout from './components/Layout';
 import Home from './pages/Home';
 import Bikes from './pages/Bikes';
+import Spaces from './pages/Spaces';
+
 
 function App() {
   return (
@@ -18,6 +20,7 @@ function App() {
         <Route path='dashboard'>
           <Route index element={<Home />} />
           <Route path='bikes' element={<Bikes />} />
+          <Route path='spaces' element={<Spaces />} />
         </Route>
       </Route>
     </Routes>
