@@ -37,16 +37,16 @@ function Header({ currentPath }) {
                 >
                   Mis Motos
                 </NavLink>
-                <button onClick={handleLogout}>Cerrar sesión</button>
+                <button className='button1' onClick={handleLogout}>Cerrar sesión</button>
               </>
             ) : (
               <>
                 {currentPath === '/login' ? (
-                  <Link to='/signup' className='link'>
+                  <Link to='/signup' className='button button2'>
                     Registrarse
                   </Link>
                 ) : (
-                  <Link to='/login' className='link'>
+                  <Link to='/login' className='button button2'>
                     Iniciar sesión
                   </Link>
                 )}
