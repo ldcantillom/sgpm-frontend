@@ -1,6 +1,7 @@
 .loaderContainer {
     width: 200px;
     justify-self: center;
+    text-align: center;
 }
 
 .loaderContainer img {
