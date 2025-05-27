@@ -22,8 +22,6 @@ const Home = () => {
         const data = await response.json();
         setUsuario(data[0]);
         sessionStorage.setItem("usuario", JSON.stringify(data[0]));
-
-        console.log('usuario recibido:', data[0]); 
       } catch (err) {
         setError(err.message);
       } finally {
