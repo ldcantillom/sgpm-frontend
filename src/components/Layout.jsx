@@ -1,9 +1,8 @@
-import { Outlet, useLocation } from "react-router-dom";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
 
 function Layout() {
-  const token = sessionStorage.getItem("token");
   const location = useLocation();
 
   return (
