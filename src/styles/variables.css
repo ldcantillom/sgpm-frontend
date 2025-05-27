@@ -1,0 +1,28 @@
+:root {
+  --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color: #222;
+  background-color: rgb(245, 245, 245);
+  --primary-color: #fff;
+  --secondary-color: #fde480;
+  --danger-color: #dc3545;
+  --hover: #333;
+  --highlight: #111;
+
+  --button1-text: #fff;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --border-radius: 20px;
+  --button-radius: 40px;
+  --site-max-width-wide: 1280px;
+  --site-max-width-normal: 920px;
+  --site-max-width-thin: 680px;
+  --spacing: 1rem;
+
+}
