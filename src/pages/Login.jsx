@@ -44,8 +44,6 @@ const Login = () => {
       sessionStorage.setItem("username", usernameFromToken);
       sessionStorage.setItem("roles", JSON.stringify(roles));
 
-      console.log('Login exitoso:', data);
-
       navigate("/dashboard");
     } catch (err) {
       console.error(err);
