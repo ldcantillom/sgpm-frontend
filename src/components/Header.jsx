@@ -37,6 +37,24 @@ function Header({ currentPath }) {
                 >
                   Mis Motos
                 </NavLink>
+                <span className='separator'>|</span>
+                <NavLink
+                  to='/dashboard/spaces'
+                  className={({ isActive }) =>
+                    isActive ? '.activeLink' : '.link'
+                  }
+                >
+                  Gestión de Espacios
+                </NavLink>
+                <span className='separator'>|</span>
+                <NavLink
+                  to='/dashboard/profile'
+                  className={({ isActive }) =>
+                    isActive ? '.activeLink' : '.link'
+                  }
+                >
+                  Perfil
+                </NavLink>
                 <button className='button1' onClick={handleLogout}>Cerrar sesión</button>
               </>
             ) : (
