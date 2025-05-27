@@ -96,7 +96,7 @@ const Spaces = () => {
           setEditData({ id: '', parqueadero: 1, estado: 1 });
           setOpenForm(true);
         }}
-        sx={{ mb: 2 }}
+        sx={{ mb: 2 , color: '#222', backgroundColor: '#fde480'}}
       >
         Agregar Espacio
       </Button>
