@@ -7,6 +7,7 @@ import Layout from './components/Layout';
 import Home from './pages/Home';
 import Bikes from './pages/Bikes';
 import Spaces from './pages/Spaces';
+import Profile from './pages/Profile'
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path='bikes' element={<Bikes />} />
           <Route path='spaces' element={<Spaces />} />
+          <Route path='profile' element={<Profile />} />
         </Route>
       </Route>
     </Routes>
