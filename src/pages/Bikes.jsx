@@ -25,9 +25,11 @@ const Bikes = () => {
   const [motos, setMotos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [openForm, setOpenForm] = useState(false);
-  const [formData, setFormData] = useState({ modelo: '', descripcion: '' });
+  const [formData, setFormData] = useState({ modelo: '', descripcion: '' , placa: '', imagen: null, ruta: ''});
   const [editIndex, setEditIndex] = useState(null);
   const [alert, setAlert] = useState({ open: false, message: '', severity: 'success' });
+  const [img, setImg] = useState(null);
+  const [imageUrl, setImageUrl] = useState(null);
 
   const fetchMotos = async () => {
     try {
@@ -58,6 +60,17 @@ const Bikes = () => {
     } finally {
       setLoading(false);
     }
+
+    fetch('http://localhost:8080/api/v1/motos/imagen/1', {
+      headers: {
+        Authorization: 'Bearer ' + sessionStorage.getItem('token')
+      }
+    })
+    .then(res => res.blob())
+    .then(blob => {
+      const url = URL.createObjectURL(blob);
+      setImageUrl(url); // state que usas para la src del img
+    });
   };
 
   useEffect(() => {
@@ -90,11 +103,13 @@ const Bikes = () => {
     const token = sessionStorage.getItem('token');
     const usuario = JSON.parse(sessionStorage.getItem('usuario'));
 
-    const body = {
-      ...formData,
-      idUsuario: usuario.id,
-      idParqueadero: usuario.parqueadero,
-    };
+    const form = new FormData();
+    form.append('imagen', img);
+    form.append('modelo', formData.modelo);
+    form.append('descripcion', formData.descripcion);
+    form.append('placa', formData.placa)
+    form.append('idUsuario', usuario.id);
+    form.append('idParqueadero', usuario.parqueadero);
 
     const url = editIndex === null
       ? 'http://localhost:8080/api/v1/motos'
@@ -106,10 +121,10 @@ const Bikes = () => {
       const response = await fetch(url, {
         method,
         headers: {
-          'Authorization': `Bearer ${token}`,
-          'Content-Type': 'application/json'
+          'Authorization': `Bearer ${token}`
+          // NO pongas Content-Type aquí, fetch lo configura automáticamente para multipart
         },
-        body: JSON.stringify(body)
+        body: form
       });
 
       if (!response.ok) throw new Error('Error al guardar la moto.');
@@ -125,10 +140,10 @@ const Bikes = () => {
   const handleOpenForm = (index = null) => {
     if (index !== null) {
       const moto = motos[index];
-      setFormData({ modelo: moto.modelo, descripcion: moto.descripcion });
+      setFormData({ modelo: moto.modelo, descripcion: moto.descripcion, imagen: moto.imagen, ruta: moto.ruta, placa: moto.placa});
       setEditIndex(index);
     } else {
-      setFormData({ modelo: '', descripcion: '' });
+      setFormData({modelo: '', descripcion: '',img: null, ruta: '', placa: ''});
       setEditIndex(null);
     }
     setOpenForm(true);
@@ -161,6 +176,7 @@ const Bikes = () => {
               <TableCell>ID</TableCell>
               <TableCell>Modelo</TableCell>
               <TableCell>Descripción</TableCell>
+              <TableCell>Imagen</TableCell>
               <TableCell>Acciones</TableCell>
             </TableRow>
           </TableHead>
@@ -170,6 +186,7 @@ const Bikes = () => {
                 <TableCell>{moto.idMoto}</TableCell>
                 <TableCell>{moto.modelo}</TableCell>
                 <TableCell>{moto.descripcion}</TableCell>
+                <TableCell><img src={imageUrl} alt="Imagen de la moto"/></TableCell>
                 <TableCell>
                   <IconButton onClick={() => handleOpenForm(index)} sx={{ color: '#8f8f8f' }}>
                     <Edit />
@@ -196,6 +213,13 @@ const Bikes = () => {
         <DialogContent>
           <TextField
             margin="dense"
+            label="Placa"
+            fullWidth
+            value={formData.placa}
+            onChange={(e) => setFormData({ ...formData, placa: e.target.value })}
+          />
+          <TextField
+            margin="dense"
             label="Modelo"
             fullWidth
             value={formData.modelo}
@@ -207,6 +231,14 @@ const Bikes = () => {
             fullWidth
             value={formData.descripcion}
             onChange={(e) => setFormData({ ...formData, descripcion: e.target.value })}
+          />
+          <input
+            type="file"
+            accept="image/*"
+            onChange={(e) =>
+              setImg(e.target.files[0])
+            }
+
           />
         </DialogContent>
         <DialogActions>

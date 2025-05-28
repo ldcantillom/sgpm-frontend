@@ -70,6 +70,7 @@ const Spaces = () => {
         body: JSON.stringify(editData),
       });
       if (!response.ok) throw new Error('Error al guardar el espacio');
+      console.log(JSON.stringify(editData));
       fetchEspacios(); // recargar
       setOpenForm(false);
       setEditData(null);
@@ -93,7 +94,7 @@ const Spaces = () => {
         variant="contained"
         startIcon={<Add />}
         onClick={() => {
-          setEditData({ id: '', parqueadero: 1, estado: 1 });
+          setEditData({ parqueadero: 1, estado: 1 , numero: ''});
           setOpenForm(true);
         }}
         sx={{ mb: 2 }}
@@ -135,11 +136,11 @@ const Spaces = () => {
         <DialogTitle>{editData?.id ? 'Editar Espacio' : 'Nuevo Espacio'}</DialogTitle>
         <DialogContent>
           <TextField
-            label="ID del espacio"
+            label="numero del espacio"
             fullWidth
             margin="normal"
-            value={editData?.id || ''}
-            onChange={(e) => setEditData({ ...editData, id: e.target.value })}
+            value={editData?.numero || ''}
+            onChange={(e) => setEditData({ ...editData, numero: e.target.value })}
             disabled={!!editData?.id}
           />
           <Select

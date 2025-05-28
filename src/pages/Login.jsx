@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 import LoadingBar from '../components/Loading';
 import '../styles/login.css';
+import { Button } from '@mui/material';
 
 const Login = () => {
   const [loading, setLoading] = useState(true);
@@ -80,6 +82,9 @@ const Login = () => {
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Contraseña"
           />
+          <Link to="/signup">
+            <Button>Registrarse</Button>
+          </Link>
           <input className='button button2' type="submit" value="Entrar" />
           {error && <p className="error">{error}</p>}
         </form>
